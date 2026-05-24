@@ -1,108 +1,61 @@
 # CIS1202 Web Dev - Group A Cooperative Website
 
-This is our multi-page website project for our Cooperative assignment. The site connects to the Sanity CMS database to pull real-time data for our pages like the history timeline, services, loans, and member info.
+This is our multi-page web project for our Cooperative assignment. The site links up directly to a Sanity CMS database to pull real-time data for things like the history timeline, service cards, loan details, and member info.
 
 ---
 
-## Design Guidelines
-Everyone needs to use these main theme colors from global.css so our pages look consistent:
-* Background: White
-* Header/Footer & Brand Color: Earth Green (#23743B)
-* Accents: Light Beige (#F5E6C8) and Cream (#FFFDD0)
+## Design System & Branding
+To make sure all of our separate pages look consistent when we link them together, everyone needs to strictly stick to these theme guidelines from the professor:
+* **Background:** White (`#FFFFFF`)
+* **Header, Footer & Brand Color:** Earth Green (`#23743B`)
+* **Accents:** Light Beige (`#F5E6C8`) and Cream (`#FFFDD0`)
 
 ---
 
-## Git Branch Rules
-To avoid merge conflicts, please don't push directly to main. Create and work inside your own branch using your lastname/task:
-
-* Member 1 (Balbuena): balbuena/home-navbar
-* Member 2 (Bautista): bautista/about-history
-* Member 3 (Hera): hera/about-leadership
-* Member 4 (Loberiano): loberiano/membership-store
-* Member 5 (Abao): abao/investments-loans
-* Member 6 (Culanag): culanag/helpdesk-calc
-* Member 7 (Abangan): abangan/application-footer
+## Core Features
+* **Home Page:** Features a hero banner, quick service highlights, and recent news articles pulled dynamically from the CMS.
+* **About Us Area:** Houses our operational history timeline, company mission/vision/goals, profile cards for the Board of Directors and Officers, an achievements list, and a community photo gallery.
+* **Investments & Loans:** Details the cooperative's investment tiers alongside specific pages for regular and special loan rates.
+* **CoopMart:** A dedicated retail page displaying available store products and promotions.
+* **Support Hub:** Includes a helpful FAQ accordion dropdown, a message contact form, an online membership registration intake portal, and a functional loan payment calculator.
 
 ---
 
-## Folder Structure & Assignments
+## Workspace & File Assignments
 
-📁 CIS1202_11_GROUPA_JAN2026/
-│
-├── index.html                       (Member 1)
-├── about-history.html               (Member 2)
-├── about-profile.html               (Member 2)
-├── about-bod.html                   (Member 3)
-├── about-officers.html              (Member 3)
-├── about-awards.html                (Member 3)
-├── about-gallery.html               (Member 3)
-├── membership.html                  (Member 4)
-├── coopmart.html                    (Member 4)
-├── investments.html                 (Member 5)
-├── loans-regular.html               (Member 5)
-├── loans-special.html               (Member 5)
-├── support-helpdesk.html            (Member 6)
-├── support-calculator.html          (Member 6)
-├── support-application.html         (Member 7)
-│
-├── 📁 styles/
-│   ├── global.css                   (Member 1)
-│   ├── home.css                     (Member 1)
-│   ├── about-history-profile.css    (Member 2)
-│   ├── about-leadership-awards.css  (Member 3)
-│   ├── members-store.css            (Member 4)
-│   ├── loans.css                    (Member 5)
-│   ├── helpdesk.css                 (Member 6)
-│   └── application.css              (Member 7)
-│
-└── 📁 js/
-├── sanity-config.js             (Member 1)
-├── navbar.js                    (Member 1)
-├── home.js                      (Member 1)
-├── about-history.js             (Member 2)
-├── about-profile.js             (Member 2)
-├── about-bod.js                 (Member 3)
-├── about-officers.js            (Member 3)
-├── about-awards.js              (Member 3)
-├── about-gallery.js             (Member 3)
-├── membership.js                (Member 4)
-├── coopmart.js                  (Member 4)
-├── loans-regular.js             (Member 5)
-├── loans-special.js             (Member 5)
-├── support-helpdesk.js          (Member 6)
-├── support-calc.js              (Member 6)
-├── application.js               (Member 7)
-└── footer.js                    (Member 7)
+The project files and specific pages are divided among the team members as follows:
 
----
+### Member 1: Balbuena (Branch: `balbuena/home-navbar`)
+* **Pages:** `index.html`
+* **Styles:** `styles/global.css`, `styles/home.css`
+* **Scripts:** `js/sanity-config.js`, `js/navbar.js`, `js/home.js`
 
-## Task Checklist
+### Member 2: Bautista (Branch: `bautista/about-history`)
+* **Pages:** `about-history.html`, `about-profile.html`
+* **Styles:** `styles/about-history-profile.css`
+* **Scripts:** `js/about-history.js`, `js/about-profile.js`
 
-### Member 1: Balbuena 
-* Set up the base sanity-config.js connection and global.css files.
-* Build the shared navbar script to load the header layout.
-* Build the Home page sections using the hero, service, and post schemas.
+### Member 3: Hera (Branch: `hera/about-leadership`)
+* **Pages:** `about-bod.html`, `about-officers.html`, `about-awards.html`, `about-gallery.html`
+* **Styles:** `styles/about-leadership-awards.css`
+* **Scripts:** `js/about-bod.js`, `js/about-officers.js`, `js/about-awards.js`, `js/about-gallery.js`
 
-### Member 2: Bautista
-* History Page: Pull and list the co-op timeline milestones.
-* Company Profile Page: Fetch the Vision, Mission, and Goals arrays from Sanity and design the member counter section.
+### Member 4: Loberiano (Branch: `loberiano/membership-store`)
+* **Pages:** `membership.html`, `coopmart.html`
+* **Styles:** `styles/members-store.css`
+* **Scripts:** `js/membership.js`, `js/coopmart.js`
 
-### Member 3: Hera
-* BOD & Officers: Create the profile cards using data from the director schema.
-* Awards & Gallery: Set up the achievements list and the community events photo grid.
+### Member 5: Abao (Branch: `abao/investments-loans`)
+* **Pages:** `investments.html`, `loans-regular.html`, `loans-special.html`
+* **Styles:** `styles/loans.css`
+* **Scripts:** `js/loans-regular.js`, `js/loans-special.js`
 
-### Member 4: Loberiano
-* Membership Info Page: Add the joining qualifications and steps.
-* CoopMart Page: Pull the specific store data from the service schema.
+### Member 6: Culanag (Branch: `culanag/helpdesk-calc`)
+* **Pages:** `support-helpdesk.html`, `support-calculator.html`
+* **Styles:** `styles/helpdesk.css`
+* **Scripts:** `js/support-helpdesk.js`, `js/support-calc.js`
 
-### Member 5: Abao
-* Investments Page: Display the cooperative's investment tiers.
-* Loans Pages: Build the Regular and Special loan pages by filtering the loanCategory schema for rates and terms.
-
-### Member 6: Culanag
-* Help Desk: Build the FAQ accordion dropdowns and the contact message form.
-* Loan Calculator: Code the math script to estimate payments based on the loan data.
-
-### Member 7: Abangan
-* Online Application Page: Code the multi-input membership registration form layout.
-* Global Footer Script: Build the shared footer script to automatically load the address, phone contacts, and social links across all pages from siteSettings.
+### Member 7: Abangan (Branch: `abangan/application-footer`)
+* **Pages:** `support-application.html`
+* **Styles:** `styles/application.css`
+* **Scripts:** `js/application.js`, `js/footer.js`

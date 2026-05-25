@@ -1,0 +1,120 @@
+/* About history & profile pages — Bautista (Member 2) */
+
+nav .nav-dropdown-menu a.active,
+nav .dropdown-content a.active {
+  font-weight: 700;
+}
+
+#history-timeline,
+#profile-content {
+  min-height: 12rem;
+}
+
+.loading {
+  text-align: center;
+  color: var(--color-text-muted);
+  padding: var(--spacing-2xl);
+}
+
+/* History timeline */
+.history-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.history-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.45rem;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: var(--spacing-2xl);
+  padding-left: var(--spacing-xl);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-2rem + 0.2rem);
+  top: 0.35rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  background: var(--color-surface);
+  border: 3px solid var(--color-primary-light);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+.timeline-year {
+  display: inline-block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: var(--color-surface-alt);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.timeline-item h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.timeline-item p {
+  margin-bottom: 0;
+}
+
+/* Mission, vision, goals */
+.profile-grid {
+  display: grid;
+  gap: var(--spacing-lg);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.profile-card h2 {
+  font-size: 1.35rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.profile-card p {
+  margin-bottom: 0;
+}
+
+.profile-summary {
+  grid-column: 1 / -1;
+  background: var(--gradient-primary);
+  color: var(--color-text-light);
+  border-left: none;
+}
+
+.profile-summary h2,
+.profile-summary p {
+  color: var(--color-text-light);
+}
+
+.profile-summary p {
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .history-timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item {
+    padding-left: var(--spacing-lg);
+  }
+
+  .timeline-item::before {
+    left: calc(-1.5rem + 0.15rem);
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Regular Loan Products - Cooperative</title>
+  <link rel="stylesheet" href="styles/global.css" />
+  <link rel="stylesheet" href="styles/loans.css" />
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-brand">Cooperative</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="investments.html">Investments</a></li>
+        <li class="nav-dropdown">
+          <span class="nav-dropdown-toggle">Loans</span>
+          <ul class="nav-dropdown-menu dropdown-content">
+            <li><a href="loans-regular.html" class="active">Regular Loans</a></li>
+            <li><a href="loans-special.html">Special Loans</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container" style="margin-top: 3rem; margin-bottom: 4rem;">
+    <header style="text-align: center; margin-bottom: 3rem;">
+      <h1>Regular Loan Products</h1>
+      <p>Accessible financial support tailored for our cooperative members.</p>
+    </header>
+
+    <div id="loans-container" class="grid grid-3">
+      <p class="loading">Fetching current loan updates...</p>
+    </div>
+  </main>
+
+  <script type="module" src="js/loans-regular.js"></script>
+</body>
+</html>

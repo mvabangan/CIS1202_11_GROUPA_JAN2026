@@ -430,14 +430,14 @@ nav .container {
   align-items: center;
 }
 
-nav a {
+nav .nav-links > li > a {
   color: var(--color-text-light);
   margin: 0 var(--spacing-md);
   font-weight: 500;
   transition: opacity var(--transition-fast);
 }
 
-nav a:hover {
+nav .nav-links > li > a:hover {
   opacity: 0.8;
   text-decoration: none;
 }
@@ -452,6 +452,120 @@ nav a:hover {
   display: flex;
   gap: var(--spacing-lg);
   list-style: none;
+}
+
+.nav-links > li {
+  display: flex;
+  align-items: center;
+}
+
+/* Loans dropdown */
+.nav-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-toggle {
+  color: var(--color-text-light);
+  margin: 0 var(--spacing-md);
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: opacity var(--transition-fast);
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle {
+  opacity: 0.8;
+}
+
+.nav-dropdown-toggle::after {
+  content: '';
+  display: inline-block;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  margin-top: -0.15rem;
+  transition: transform var(--transition-fast);
+}
+
+.nav-dropdown:hover .nav-dropdown-toggle::after {
+  transform: rotate(-135deg);
+  margin-top: 0.15rem;
+}
+
+.nav-dropdown-menu,
+.dropdown-content {
+  position: absolute;
+  top: calc(100% + var(--spacing-sm));
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 11rem;
+  padding: var(--spacing-sm) 0;
+  list-style: none;
+  display: block;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity var(--transition-base), visibility var(--transition-base);
+  z-index: 200;
+}
+
+.nav-dropdown-menu::before,
+.dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: calc(-1 * var(--spacing-sm));
+  left: 0;
+  width: 100%;
+  height: var(--spacing-sm);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.nav-dropdown-menu li,
+.dropdown-content li {
+  display: block;
+}
+
+nav .nav-dropdown-menu a,
+nav .dropdown-content a {
+  display: block;
+  margin: 0;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  color: #0f172a;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 1;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+nav .nav-dropdown-menu a:hover,
+nav .nav-dropdown-menu a:focus-visible,
+nav .dropdown-content a:hover,
+nav .dropdown-content a:focus-visible {
+  opacity: 1;
+  background-color: var(--color-surface-alt);
+  color: #1e3a8a;
+  text-decoration: none;
+}
+
+nav .nav-dropdown-menu a.active,
+nav .dropdown-content a.active {
+  color: #1e3a8a;
+  font-weight: 700;
+  background-color: var(--color-surface-alt);
 }
 
 /* ===========================
@@ -558,8 +672,13 @@ label {
     gap: var(--spacing-md);
   }
 
-  nav a {
+  nav .nav-links > li > a {
     margin: 0 var(--spacing-sm);
+    font-size: 0.875rem;
+  }
+
+  nav .nav-dropdown-menu a,
+  nav .dropdown-content a {
     font-size: 0.875rem;
   }
 

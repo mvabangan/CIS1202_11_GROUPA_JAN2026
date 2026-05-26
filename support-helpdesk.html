@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Cooperative Help Desk and customer inquiry support page" />
+    <title>Cooperative Help Desk</title>
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/helpdesk.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="nav-brand">Cooperative</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="support-calculator.html">Loan Calculator</a></li>
+          <li><a href="support-helpdesk.html">Help Desk</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="page-hero container">
+        <div class="hero-content">
+          <h1>Help Desk & Support</h1>
+          <p>Find quick answers to common questions or send us a customer inquiry. Our team is ready to help.</p>
+        </div>
+      </section>
+
+      <section class="container support-grid">
+        <div class="support-panel">
+          <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Browse our most common support topics and expand them to learn more.</p>
+          </div>
+
+          <div class="faq-list" id="faqList">
+            <article class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>How can I check my account balance?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>You can check your account balance by logging into your cooperative account online or contacting our help desk directly. We provide support by phone, email, and live chat.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>What documents are required for a loan application?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Standard loan applications usually require a valid ID, proof of income, and proof of residency. If your loan type needs additional documents, we will review them with you personally.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>How long does it take to receive a loan decision?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Most loan decisions are completed within 2-3 business days after submission. If more information is needed, our support team will contact you promptly.</p>
+              </div>
+            </article>
+
+            <article class="faq-item">
+              <button class="faq-question" aria-expanded="false">
+                <span>Can I update my contact information online?</span>
+                <span class="faq-toggle">+</span>
+              </button>
+              <div class="faq-answer">
+                <p>Yes, contact details may be updated through the account portal or by submitting an inquiry through this form. We will confirm the changes before they are finalized.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="support-panel support-form-panel">
+          <div class="section-header">
+            <h2>Customer Inquiry Form</h2>
+            <p>Submit your question or concern and we will get back to you as soon as possible.</p>
+          </div>
+
+          <form id="customerInquiryForm" class="support-form">
+            <div class="form-group">
+              <label for="customerName">Full Name</label>
+              <input type="text" id="customerName" name="customerName" placeholder="Enter your full name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="customerEmail">Email Address</label>
+              <input type="email" id="customerEmail" name="customerEmail" placeholder="name@example.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="inquiryType">Inquiry Type</label>
+              <select id="inquiryType" name="inquiryType" required>
+                <option value="">Select inquiry type</option>
+                <option value="account">Account Support</option>
+                <option value="loan">Loan Questions</option>
+                <option value="technical">Technical Issue</option>
+                <option value="general">General Inquiry</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="inquirySubject">Subject</label>
+              <input type="text" id="inquirySubject" name="inquirySubject" placeholder="Brief description" required />
+            </div>
+
+            <div class="form-group">
+              <label for="inquiryMessage">Message</label>
+              <textarea id="inquiryMessage" name="inquiryMessage" rows="6" placeholder="Describe your question or issue" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+
+            <div id="inquirySuccess" class="form-success" hidden>
+              <p>Thank you! Your message has been received. One of our support agents will follow up shortly.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="js/support-helpdesk.js"></script>
+  </body>
+</html>

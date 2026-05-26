@@ -1,0 +1,178 @@
+:root {
+  --helpdesk-surface: #ffffff;
+  --helpdesk-surface-alt: #f9fafc;
+  --helpdesk-border: #dbe4ff;
+  --helpdesk-heading: #102a43;
+  --helpdesk-text: #334155;
+}
+
+.page-hero {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(56, 189, 248, 0.88));
+  color: var(--color-text-light);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-3xl) var(--spacing-md);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.page-hero h1,
+.page-hero p {
+  color: var(--color-text-light);
+}
+
+.support-grid,
+.calculator-section {
+  display: grid;
+  gap: var(--spacing-3xl);
+  grid-template-columns: 1fr;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.support-panel,
+.calculator-panel {
+  background: var(--helpdesk-surface);
+  border: 1px solid var(--helpdesk-border);
+  border-radius: var(--radius-xl);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-sm);
+}
+
+.section-header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.section-header p {
+  color: var(--color-text-muted);
+  max-width: 42rem;
+}
+
+.faq-list {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.faq-item {
+  border: 1px solid var(--helpdesk-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--helpdesk-surface-alt);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: var(--spacing-lg);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--helpdesk-heading);
+  cursor: pointer;
+  text-align: left;
+}
+
+.faq-question:hover {
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.faq-toggle {
+  font-size: 1.5rem;
+  transition: transform var(--transition-fast);
+}
+
+.faq-item.open .faq-toggle {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  border-top: 1px solid var(--helpdesk-border);
+  display: none;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+.support-form .form-group,
+.calculator-form .form-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.support-form textarea {
+  min-height: 160px;
+  resize: vertical;
+}
+
+.form-success {
+  margin-top: var(--spacing-lg);
+  padding: var(--spacing-md);
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #0f766e;
+  border-radius: var(--radius-md);
+}
+
+.calculator-form {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.result-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.calculator-results {
+  border: 1px solid var(--helpdesk-border);
+  border-radius: var(--radius-lg);
+  background: var(--helpdesk-surface-alt);
+  padding: var(--spacing-2xl);
+  min-height: 220px;
+}
+
+.calculator-results p,
+.calculator-results .result-row {
+  color: var(--helpdesk-text);
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md) 0;
+  border-bottom: 1px solid var(--helpdesk-border);
+}
+
+.result-row:last-child {
+  border-bottom: none;
+}
+
+.result-row strong {
+  color: var(--color-primary);
+}
+
+.result-note {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (min-width: 900px) {
+  .support-grid,
+  .calculator-section {
+    grid-template-columns: minmax(320px, 1fr) minmax(320px, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .nav-links {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Loan payment calculator for cooperative loan programs" />
+    <title>Cooperative Loan Calculator</title>
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/helpdesk.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="nav-brand">Cooperative</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="support-calculator.html">Loan Calculator</a></li>
+          <li><a href="support-helpdesk.html">Help Desk</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="page-hero container">
+        <div class="hero-content">
+          <h1>Loan Payment Calculator</h1>
+          <p>Estimate your monthly payment using loan types and interest rates from our cooperative loan programs.</p>
+        </div>
+      </section>
+
+      <section class="container calculator-section">
+        <div class="calculator-panel">
+          <div class="section-header">
+            <h2>Loan Details</h2>
+            <p>Choose a loan type, enter your loan amount, and select a repayment term.</p>
+          </div>
+
+          <form id="loanCalculatorForm" class="calculator-form">
+            <div class="form-group">
+              <label for="loanType">Loan Program</label>
+              <select id="loanType" required>
+                <option value="regular">Regular Loan — 7.25% APR</option>
+                <option value="special">Special Loan — 6.75% APR</option>
+                <option value="emergency">Emergency Loan — 8.00% APR</option>
+                <option value="custom">Custom Rate</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="loanAmount">Loan Amount</label>
+              <input type="number" id="loanAmount" min="1000" step="100" placeholder="Enter loan amount" required />
+            </div>
+
+            <div class="form-group">
+              <label for="loanTerm">Repayment Term (years)</label>
+              <select id="loanTerm" required>
+                <option value="1">1 year</option>
+                <option value="2">2 years</option>
+                <option value="3">3 years</option>
+                <option value="4">4 years</option>
+                <option value="5">5 years</option>
+                <option value="7">7 years</option>
+                <option value="10">10 years</option>
+              </select>
+            </div>
+
+            <div class="form-group hidden" id="customRateGroup">
+              <label for="customRate">Custom APR (%)</label>
+              <input type="number" id="customRate" min="0.1" step="0.01" placeholder="Enter annual interest rate" />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Calculate Payment</button>
+          </form>
+        </div>
+
+        <div class="calculator-panel result-panel">
+          <div class="section-header">
+            <h2>Estimated Payment</h2>
+            <p>Your monthly payment estimate will appear here after calculation.</p>
+          </div>
+
+          <div class="calculator-results" id="calculatorResults">
+            <p class="result-note">Enter loan details and click <strong>Calculate Payment</strong> to see results.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="js/support-calc.js"></script>
+  </body>
+</html>

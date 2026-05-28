@@ -1,13 +1,3 @@
-const SANITY_FOOTER_CONFIG = {
-    projectId: "ltk0qh4a",
-    dataset: "production",
-    apiVersion: "2024-01-01",
-    useCdn: true,
-};
-
-const { createClient } = globalThis.SanityClient;
-const footerClient = createClient(SANITY_FOOTER_CONFIG);
-
 async function loadGlobalFooter() {
     const footerContainer = document.getElementById('footer-container');
     if (!footerContainer) return;
@@ -22,14 +12,14 @@ async function loadGlobalFooter() {
     }`;
 
     try {
-        const data = await footerClient.fetch(FOOTER_QUERY);
+        // Use the global client from sanity-config.js
+        const data = await window.coopSanityClient.fetch(FOOTER_QUERY);
         
         if (!data) {
             console.error("Footer Error: No siteSettings document found in Sanity database.");
             return;
         }
 
-        // Map database arrays into html layout items dynamically
         const phones = (data.contactNumbers || []).map(num => `<li>${num}</li>`).join('');
         const emails = (data.emails || []).map(em => `<li><a href="mailto:${em}" style="color: #FFFDD0;">${em}</a></li>`).join('');
         const socials = (data.socialLinks || []).map(link => `
@@ -38,7 +28,6 @@ async function loadGlobalFooter() {
             </a>
         `).join('');
 
-        // Injecting the brand layout container matching the Earth Green theme rules
         footerContainer.innerHTML = `
             <footer style="background-color: #23743B; color: #FFFFFF; padding: 40px 24px; font-family: system-ui, sans-serif; margin-top: 60px;">
                 <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">

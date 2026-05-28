@@ -1,11 +1,18 @@
-// Directly importing the shared Sanity configuration client
-import client from './sanity-config.js';
+const SANITY_FOOTER_CONFIG = {
+    projectId: "ltk0qh4a",
+    dataset: "production",
+    apiVersion: "2024-01-01",
+    useCdn: true,
+};
+
+const { createClient } = globalThis.SanityClient;
+const footerClient = createClient(SANITY_FOOTER_CONFIG);
 
 async function loadGlobalFooter() {
     const footerContainer = document.getElementById('footer-container');
     if (!footerContainer) return;
 
-    // GROQ query targeting the team's siteSettings schema rules
+    // GROQ query targeting the siteSettings schema rules exactly as defined in SCHEMAS.md
     const FOOTER_QUERY = `*[_type == "siteSettings"][0]{
         address,
         contactNumbers,
@@ -15,8 +22,7 @@ async function loadGlobalFooter() {
     }`;
 
     try {
-        // Querying the database using the shared group client module
-        const data = await client.fetch(FOOTER_QUERY);
+        const data = await footerClient.fetch(FOOTER_QUERY);
         
         if (!data) {
             console.error("Footer Error: No siteSettings document found in Sanity database.");
@@ -32,7 +38,7 @@ async function loadGlobalFooter() {
             </a>
         `).join('');
 
-        // Injecting the brand layout container matching the Earth Green team guidelines
+        // Injecting the brand layout container matching the Earth Green theme rules
         footerContainer.innerHTML = `
             <footer style="background-color: #23743B; color: #FFFFFF; padding: 40px 24px; font-family: system-ui, sans-serif; margin-top: 60px;">
                 <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px;">
@@ -67,7 +73,7 @@ async function loadGlobalFooter() {
             </footer>
         `;
     } catch (error) {
-        console.error("Footer could not fetch from shared Sanity client:", error);
+        console.error("Footer could not fetch data from Sanity:", error);
     }
 }
 

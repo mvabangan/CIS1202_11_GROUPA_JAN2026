@@ -48,8 +48,16 @@
 
     <div id="footer-container"></div>
 
-    <script type="module" src="js/navbar.js"></script>
-    <script type="module" src="js/application.js"></script>
-    <script type="module" src="js/footer.js"></script>
+    <script src="js/application.js"></script>
+    
+    <script src="js/footer.js"></script>
+
+    <script type="module">
+        import { renderNavbar } from './js/navbar.js';
+        
+        if (typeof renderNavbar === 'function') {
+            renderNavbar('#navbar-container');
+        }
+    </script>
 </body>
 </html>

@@ -11,19 +11,21 @@
   <link rel="stylesheet" href="global.css">
   <link rel="stylesheet" href="about-leadership-awards.css">
 
-
+  <script src="https://unpkg.com/@sanity/client@6/umd/sanityClient.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@sanity/image-url@1.0.2/lib/browser/image-url.umd.js"></script>
 </head>
 <body>
+
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-eyebrow">Board of Directors</div>
     <h1>Guided by Service,<br>Driven by Trust</h1>
-    <p>Meet the elected leaders who govern Green Valley Cooperative with integrity, accountability, and deep commitment to our members.</p>
+    <p id="fetch-status">Meet the elected leaders who govern Green Valley Cooperative with integrity, accountability, and deep commitment to our members.</p>
   </div>
 </header>
 
 <main>
-  <section class="section anim anim-d1">
+  <section class="section anim anim-d1" id="chairman-section">
     <div class="section-label"><span>Chairman's Message</span></div>
     <div class="chairman-card" id="chairman-card"></div>
   </section>
@@ -34,11 +36,10 @@
   </section>
 </main>
 
- <script src="js/about-bod.js"></script>
- <script src="about-bod.js"></script>
- <script src="js/sanity-config.js"></script>
- <script src="js/navbar.js"></script>
- <script src="js/footer.js"></script>
+<script src="about-bod.js"></script>
+<script src="js/sanity-config.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/footer.js"></script>
 
 </body>
 </html>

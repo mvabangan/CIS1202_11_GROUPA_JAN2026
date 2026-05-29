@@ -5,34 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Event Gallery — Green Valley Cooperative</title>
   
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
   
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="global.css">
   <link rel="stylesheet" href="about-leadership-awards.css">
 
-
+  <!-- Sanity Framework Engine Dependencies -->
+  <script src="https://unpkg.com/@sanity/client@6/umd/sanityClient.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@sanity/image-url@1.0.2/lib/browser/image-url.umd.js"></script>
 </head>
 <body>
 
 <header class="hero">
-  <div class="hero-inner header-split-container">
-    
-    <div class="hero-content">
+  <div class="hero-inner">
+    <div>
       <span class="hero-eyebrow">Community Events</span>
       <h1>Our Stories in<br>Pictures</h1>
-      <p>A window into the events, milestones, and moments that bring the Green Valley Cooperative community together.</p>
-      
-      <div class="hero-photo-count">
-        <div class="num" id="total-count">—</div>
-        <div class="lbl">photos</div>
-      </div>
+      <p id="fetch-status">Loading files from database archive...</p>
     </div>
-
-    <div class="hero-image-aside">
-      <img src="styles/image_01ba5b.jpg" alt="Green Valley Cooperative Board of Directors Overview" class="hero-team-graphic">
+    <div class="hero-photo-count">
+      <div class="num" id="total-count">—</div>
+      <div class="lbl">photos</div>
     </div>
-
   </div>
 </header>
 
@@ -47,6 +44,7 @@
   <div class="gallery-grid" id="gallery-grid"></div>
 </div>
 
+<!-- Dynamic Lightbox Overlay Component -->
 <div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
   <div class="lightbox-inner" id="lightbox-inner">
     <button class="lightbox-close" onclick="closeLightbox()">✕</button>
@@ -64,9 +62,10 @@
   </div>
 </div>
 
- <script src="js/sanity-config.js"></script>
- <script src="js/navbar.js"></script>
- <script src="js/footer.js"></script>
+<script src="about-gallery.js"></script>
+<script src="js/sanity-config.js"></script>
+<script src="js/navbar.js"></script>
+<script src="js/footer.js"></script>
 
 </body>
 </html>

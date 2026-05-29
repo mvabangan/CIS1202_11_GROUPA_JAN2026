@@ -1,4 +1,3 @@
- /* ── MOCK DATA ── */
   const FEATURED = {
     icon: '🥇',
     tag: 'Most Recent · 2024',

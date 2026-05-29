@@ -15,6 +15,73 @@
   --radius:      14px;
 }
 
+.header-split-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  max-width: 1200px; /* Expands width bounds slightly to fit the graphic cleanly */
+  margin: 0 auto;
+  text-align: left; /* Changes text alignments to compliment the split look */
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Fixes block alignments of elements inside your revised container layout */
+.hero-content p {
+  margin: 0 0 24px 0;
+}
+
+.hero-photo-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* TEAM PICTURE FEATURE CONTAINER RULES */
+.hero-image-aside {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-team-graphic {
+  width: 100%;
+  max-width: 520px; /* Keeps the graphic sharp and proportioned nicely */
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.hero-team-graphic:hover {
+  transform: scale(1.02);
+}
+
+/* RESPONSIVE LAYOUT RESPONSES (MOBILE OPTIMIZATION) */
+@media (max-width: 900px) {
+  .header-split-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 36px;
+  }
+  
+  .hero-content p {
+    margin: 0 auto 24px;
+  }
+  
+  .hero-photo-count {
+    margin: 0 auto;
+  }
+}
+
 *, *::before, *::after { 
   box-sizing: border-box; 
   margin: 0; 

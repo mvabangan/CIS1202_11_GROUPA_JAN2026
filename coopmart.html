@@ -1,0 +1,74 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CoopMart — Co-op</title>
+
+  <!-- Sanity SDKs -->
+  <script src="https://unpkg.com/@sanity/client@6/umd/sanityClient.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@sanity/image-url@1.0.2/lib/browser/image-url.umd.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles/global.css">
+  <link rel="stylesheet" href="styles/members-store.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <section class="page-hero">
+    <h1>🛒 CoopMart</h1>
+    <p>Browse the full range of products and services available exclusively to cooperative members.</p>
+  </section>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>CoopMart</span>
+  </nav>
+
+  <main class="section">
+    <div class="section-header">
+      <h2>Our Services & Products</h2>
+      <p>Everything the cooperative offers — from financial services to member programs — in one place.</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="search-bar-wrap">
+      <input
+        type="search"
+        id="coopmart-search"
+        placeholder="Search services…"
+        aria-label="Search CoopMart services"
+        autocomplete="off"
+      >
+      <span class="search-icon" aria-hidden="true">🔍</span>
+    </div>
+
+    <div class="coopmart-toolbar">
+      <p class="count-label">
+        Showing <span id="service-count">—</span>
+      </p>
+      <p id="coopmart-status" class="count-label" aria-live="polite"></p>
+    </div>
+
+    <div
+      id="coopmart-grid"
+      class="card-grid"
+      aria-live="polite"
+      aria-label="CoopMart services"
+    ></div>
+
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="js/sanity-config.js"></script>
+  <script src="js/site-header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/coopmart.js"></script>
+</body>
+</html>
+```

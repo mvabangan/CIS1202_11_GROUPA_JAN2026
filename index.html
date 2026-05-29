@@ -8,22 +8,7 @@
     <link rel="stylesheet" href="styles/global.css" />
   </head>
   <body>
-    <!-- Navigation -->
-    <nav>
-      <div class="container">
-        <div class="nav-brand">Cooperative</div>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li class="nav-dropdown">
-            <span class="nav-dropdown-toggle">About</span>
-            <ul class="nav-dropdown-menu dropdown-content">
-              <li><a href="about-history.html">Our History</a></li>
-              <li><a href="about-profile.html">Mission &amp; Profile</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <div id="site-header"></div>
 
     <!-- Hero Section -->
     <main>
@@ -74,13 +59,9 @@
     </main>
 
     <script type="module">
-      // Future JavaScript modules will be imported here
-      console.log('Cooperative website initialized');
-      
-      // Add smooth scroll and animations
-      document.querySelectorAll('.fade-in, .slide-in-left').forEach((el) => {
-        el.style.animation = el.classList[0];
-      });
+      import { renderNavbar } from './js/navbar.js';
+
+      renderNavbar();
     </script>
   </body>
 </html>

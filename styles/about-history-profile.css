@@ -1,10 +1,5 @@
 /* About history & profile pages — Bautista (Member 2) */
 
-nav .nav-dropdown-menu a.active,
-nav .dropdown-content a.active {
-  font-weight: 700;
-}
-
 #history-timeline,
 #profile-content {
   min-height: 12rem;
@@ -69,15 +64,47 @@ nav .dropdown-content a.active {
   margin-bottom: var(--spacing-sm);
 }
 
-.timeline-item p {
+.timeline-category {
+  display: inline-block;
+  margin-left: var(--spacing-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-primary-light);
+  background: var(--color-surface-alt);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  vertical-align: middle;
+}
+
+.timeline-metric {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-dark);
+}
+
+.timeline-item p:last-child {
   margin-bottom: 0;
 }
 
 /* Mission, vision, goals */
-.profile-grid {
+.profile-mvg-grid {
   display: grid;
   gap: var(--spacing-lg);
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.profile-mvg-card h2 {
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.profile-empty {
+  margin-bottom: 0;
+  font-style: italic;
+  color: var(--color-text-muted);
 }
 
 .profile-card h2 {
@@ -103,6 +130,33 @@ nav .dropdown-content a.active {
 
 .profile-summary p {
   opacity: 0.95;
+}
+
+.goals-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  color: var(--color-text-muted);
+}
+
+.goals-list li {
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.6;
+}
+
+.goals-list li:last-child {
+  margin-bottom: 0;
+}
+
+.profile-history {
+  grid-column: 1 / -1;
+}
+
+.profile-history-content p {
+  margin-bottom: var(--spacing-md);
+}
+
+.profile-history-content p:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {

@@ -412,7 +412,91 @@ code {
 }
 
 /* ===========================
-   NAVBAR
+   SHARED SITE HEADER (Balbuena navbar.js)
+   =========================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-primary);
+  color: var(--color-text-light);
+  box-shadow: var(--shadow-md);
+}
+
+.navbar {
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-md) 0;
+}
+
+.navbar__brand {
+  color: var(--color-text-light);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.navbar__brand:hover {
+  color: var(--color-text-light);
+  opacity: 0.9;
+  text-decoration: none;
+}
+
+.navbar__links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.navbar__links a {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 600;
+  padding: 0.4rem 0;
+  position: relative;
+}
+
+.navbar__links a:hover {
+  color: var(--color-text-light);
+  text-decoration: none;
+}
+
+.navbar__links a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.1rem;
+  width: 100%;
+  height: 2px;
+  background: var(--color-secondary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.navbar__links a:hover::after,
+.navbar__links a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar__links {
+    gap: var(--spacing-md);
+  }
+}
+
+/* ===========================
+   NAVBAR (legacy static pages)
    =========================== */
 nav {
   background: var(--color-primary);

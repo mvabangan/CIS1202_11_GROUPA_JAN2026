@@ -78,6 +78,12 @@ function buildPageShell() {
           <p>
             Our cooperative focuses on shared progress, open communication, and practical support for every member.
           </p>
+          <div style="margin-top: var(--spacing-xl); text-align: center;">
+            <p style="max-width: 600px; margin: 0 auto var(--spacing-lg); font-size: 1.05rem; color: var(--color-text-muted);">
+              Founded on the principles of community empowerment, we provide competitive financial options, retail savings, and dependable support programs tailored for our members' long-term success.
+            </p>
+            <a class="btn btn--ghost" href="about-history.html" style="padding: 0.6rem 1.2rem; min-height: auto;">Read Our Full History</a>
+          </div>
         </div>
       </section>
 
@@ -144,27 +150,63 @@ async function loadContent() {
   const serviceQuery = `*[_type == "service"] | order(_createdAt desc)[0...3]{_id, title, description, category}`;
   const postQuery = `*[_type == "post"] | order(publishedAt desc, _createdAt desc)[0...3]{_id, title, "excerpt": coalesce(excerpt, summary), publishedAt}`;
 
-  const [servicesResult, postsResult] = await Promise.allSettled([
-    window.coopSanityClient.fetch(serviceQuery),
-    window.coopSanityClient.fetch(postQuery),
-  ]);
+  let services = [];
+  let posts = [];
 
-  const services = servicesResult.status === 'fulfilled' && servicesResult.value.length > 0
-    ? servicesResult.value
-    : serviceFallback;
+  // Reusable native fetch helper for independent requests
+  const nativeSanityFetch = async (query) => {
+    const projectId = "ltk0qh4a";
+    const dataset = "production";
+    const apiVersion = "2024-01-01";
+    const url = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${encodeURIComponent(query)}`;
+    const response = await fetch(url);
+    const result = await response.json();
+    return result.result;
+  };
 
-  const posts = postsResult.status === 'fulfilled' && postsResult.value.length > 0
-    ? postsResult.value
-    : newsFallback.slice(0, 3);
+  try {
+    // Check if the global client exists and works smoothly
+    if (window.coopSanityClient && typeof window.coopSanityClient.fetch === 'function') {
+      const [servicesResult, postsResult] = await Promise.allSettled([
+        window.coopSanityClient.fetch(serviceQuery),
+        window.coopSanityClient.fetch(postQuery),
+      ]);
+      services = servicesResult.status === 'fulfilled' && servicesResult.value ? servicesResult.value : [];
+      posts = postsResult.status === 'fulfilled' && postsResult.value ? postsResult.value : [];
+    } else {
+      // Direct, native browser fetch fallback
+      const [servicesData, postsData] = await Promise.allSettled([
+        nativeSanityFetch(serviceQuery),
+        nativeSanityFetch(postQuery)
+      ]);
+      services = servicesData.status === 'fulfilled' && servicesData.value ? servicesData.value : [];
+      posts = postsData.status === 'fulfilled' && postsData.value ? postsData.value : [];
+    }
+  } catch (err) {
+    console.error("Home content fetch failed, using fallback arrays:", err);
+  }
+
+  // Use fallback dummy items if the database arrays come back empty
+  if (services.length === 0) services = serviceFallback;
+  if (posts.length === 0) posts = newsFallback.slice(0, 3);
 
   renderServices(services);
   renderNews(posts);
 }
 
-function initHome() {
-  window.renderNavbar();
+async function initHome() {
+  if (typeof window.renderNavbar === 'function') {
+    window.renderNavbar();
+  }
   buildPageShell();
-  void loadContent();
+  
+  // Await content delivery to keep layout sequences stable
+  await loadContent();
+  
+  // Render your dynamic database footer layout cleanly
+  if (typeof window.loadGlobalFooter === 'function') {
+      window.loadGlobalFooter();
+  }
 }
 
 if (document.readyState === 'loading') {

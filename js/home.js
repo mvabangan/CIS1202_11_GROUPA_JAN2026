@@ -111,14 +111,7 @@ function buildPageShell() {
         </div>
       </section>
     </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p><strong>Cooperative</strong> - Community. Trust. Growth.</p>
-        <p>Built with vanilla HTML, CSS, and JavaScript for a clean, reusable foundation.</p>
-      </div>
-    </footer>
-  `;
+    `;
 }
 
 function renderServices(services) {

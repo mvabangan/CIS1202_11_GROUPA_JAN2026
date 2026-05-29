@@ -1,39 +1,21 @@
-const projectId = globalThis.SANITY_PROJECT_ID || '';
-
-if (!projectId) {
-  console.warn('SANITY_PROJECT_ID is not set. Add the real Sanity project ID before fetching live CMS data.');
-}
-
-export const sanityConfig = {
-  projectId,
+const GLOBAL_SANITY_CONFIG = {
+  projectId: 'ltk0qh4a',
   dataset: 'production',
-  apiVersion: '2023-01-01',
+  apiVersion: '2024-01-01',
   useCdn: true,
 };
 
-let clientPromise;
+const sanityClientGlobal = globalThis.SanityClient;
 
-async function getClient() {
-  if (!clientPromise) {
-    clientPromise = import('https://cdn.skypack.dev/@sanity/client').then(({ createClient }) => {
-      return createClient(sanityConfig);
-    });
-  }
-
-  return clientPromise;
+if (!sanityClientGlobal || typeof sanityClientGlobal.createClient !== 'function') {
+  throw new Error('SanityClient global is missing. Load the Sanity UMD script before js/home.js.');
 }
 
-export const client = {
-  async fetch(query, params = {}) {
-    if (!projectId) {
-      throw new Error('Missing Sanity project ID. Set globalThis.SANITY_PROJECT_ID before loading the page.');
-    }
+// Initialize the client using the globally loaded SanityClient library
+const { createClient } = sanityClientGlobal;
 
-    const sanityClient = await getClient();
-    return sanityClient.fetch(query, params);
-  },
+// Attach the client to the global window object so all team scripts can access it
+window.coopSanityClient = createClient(GLOBAL_SANITY_CONFIG);
+window.fetchSanity = function fetchSanity(query, params = {}) {
+  return window.coopSanityClient.fetch(query, params);
 };
-
-export async function fetchSanity(query, params = {}) {
-  return client.fetch(query, params);
-}

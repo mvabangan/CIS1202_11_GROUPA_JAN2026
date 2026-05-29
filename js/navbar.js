@@ -5,7 +5,7 @@ const NAV_ITEMS = [
   { label: 'Contact', href: '#contact' },
 ];
 
-export function renderNavbar(mountPoint = '#site-header') {
+function renderNavbar(mountPoint = '#site-header') {
   const target = document.querySelector(mountPoint) || document.body;
 
   target.innerHTML = `
@@ -19,3 +19,5 @@ export function renderNavbar(mountPoint = '#site-header') {
     </header>
   `;
 }
+
+window.renderNavbar = renderNavbar;

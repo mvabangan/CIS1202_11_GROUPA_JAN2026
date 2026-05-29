@@ -1,6 +1,3 @@
-import { renderNavbar } from './navbar.js';
-import { fetchSanity } from './sanity-config.js';
-
 const serviceFallback = [
   {
     _id: 'service-1',
@@ -155,16 +152,24 @@ async function loadContent() {
   const postQuery = `*[_type == "post"] | order(publishedAt desc, _createdAt desc)[0...3]{_id, title, "excerpt": coalesce(excerpt, summary), publishedAt}`;
 
   const [servicesResult, postsResult] = await Promise.allSettled([
-    fetchSanity(serviceQuery),
-    fetchSanity(postQuery),
+    window.coopSanityClient.fetch(serviceQuery),
+    window.coopSanityClient.fetch(postQuery),
   ]);
 
-  renderServices(servicesResult.status === 'fulfilled' ? servicesResult.value : serviceFallback);
-  renderNews(postsResult.status === 'fulfilled' ? postsResult.value : newsFallback.slice(0, 3));
+  const services = servicesResult.status === 'fulfilled' && servicesResult.value.length > 0
+    ? servicesResult.value
+    : serviceFallback;
+
+  const posts = postsResult.status === 'fulfilled' && postsResult.value.length > 0
+    ? postsResult.value
+    : newsFallback.slice(0, 3);
+
+  renderServices(services);
+  renderNews(posts);
 }
 
 function initHome() {
-  renderNavbar();
+  window.renderNavbar();
   buildPageShell();
   void loadContent();
 }

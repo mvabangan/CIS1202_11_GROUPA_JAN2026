@@ -11,9 +11,25 @@ async function loadGlobalFooter() {
         socialLinks[]{ platform, url }
     }`;
 
+    let data = null;
+
     try {
-        // Use the global client from sanity-config.js
-        const data = await window.coopSanityClient.fetch(FOOTER_QUERY);
+        // 1. Check if the global team client is available and running
+        if (window.coopSanityClient && typeof window.coopSanityClient.fetch === 'function') {
+            data = await window.coopSanityClient.fetch(FOOTER_QUERY);
+        } else {
+            // 2. Fallback: Use standard browser fetch to communicate directly with the project database
+            // This prevents the script from crashing if individual pages don't load external scripts
+            const projectId = "ltk0qh4a";
+            const dataset = "production";
+            const apiVersion = "2024-01-01";
+            const encodedQuery = encodeURIComponent(FOOTER_QUERY);
+            const url = `https://${projectId}.api.sanity.io/v${apiVersion}/data/query/${dataset}?query=${encodedQuery}`;
+            
+            const response = await fetch(url);
+            const result = await response.json();
+            data = result.result;
+        }
         
         if (!data) {
             console.error("Footer Error: No siteSettings document found in Sanity database.");
@@ -65,5 +81,8 @@ async function loadGlobalFooter() {
         console.error("Footer could not fetch data from Sanity:", error);
     }
 }
+
+// Make the function available globally
+window.loadGlobalFooter = loadGlobalFooter;
 
 document.addEventListener('DOMContentLoaded', loadGlobalFooter);

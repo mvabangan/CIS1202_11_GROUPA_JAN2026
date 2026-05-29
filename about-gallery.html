@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Gallery — Green Valley Cooperative</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="/STYLES/about-leadership-awards.css">
+
+
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">Community Events</span>
+      <h1>Our Stories in<br>Pictures</h1>
+      <p>A window into the events, milestones, and moments that bring the Green Valley Cooperative community together.</p>
+    </div>
+    <div class="hero-photo-count">
+      <div class="num" id="total-count">—</div>
+      <div class="lbl">photos</div>
+    </div>
+  </div>
+</header>
+
+<div class="filter-bar">
+  <div class="filter-bar-inner">
+    <div id="filter-btns" class="filter-flex-container"></div>
+    <div class="filter-count" id="filter-count"></div>
+  </div>
+</div>
+
+<div class="gallery-wrap">
+  <div class="gallery-grid" id="gallery-grid"></div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightboxOnBg(event)">
+  <div class="lightbox-inner" id="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    <div class="lightbox-photo" id="lb-photo"></div>
+    <div class="lightbox-body">
+      <div class="lightbox-tag" id="lb-tag"></div>
+      <div class="lightbox-title" id="lb-title"></div>
+      <div class="lightbox-desc" id="lb-desc"></div>
+      <div class="lightbox-meta" id="lb-meta"></div>
+    </div>
+    <div class="lightbox-nav">
+      <button class="lb-nav-btn" id="lb-prev" onclick="navigateLightbox(-1)">← Previous</button>
+      <button class="lb-nav-btn" id="lb-next" onclick="navigateLightbox(1)">Next →</button>
+    </div>
+  </div>
+</div>
+
+ <script src="/JS/sanity-config.js"></script>
+ <script src="js/navbar.js"></script>
+ <script src="js/footer.js"></script>
+
+</body>
+</html>

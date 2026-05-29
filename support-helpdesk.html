@@ -9,19 +9,7 @@
     <link rel="stylesheet" href="styles/helpdesk.css" />
   </head>
   <body>
-    <nav>
-      <div class="container">
-        <div class="nav-brand">Cooperative</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="support-calculator.html">Loan Calculator</a></li>
-          <li><a href="support-helpdesk.html">Help Desk</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+    <div id="nav-placeholder"></div>
 
     <main>
       <section class="page-hero container">
@@ -39,45 +27,7 @@
           </div>
 
           <div class="faq-list" id="faqList">
-            <article class="faq-item">
-              <button class="faq-question" aria-expanded="false">
-                <span>How can I check my account balance?</span>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-answer">
-                <p>You can check your account balance by logging into your cooperative account online or contacting our help desk directly. We provide support by phone, email, and live chat.</p>
-              </div>
-            </article>
-
-            <article class="faq-item">
-              <button class="faq-question" aria-expanded="false">
-                <span>What documents are required for a loan application?</span>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-answer">
-                <p>Standard loan applications usually require a valid ID, proof of income, and proof of residency. If your loan type needs additional documents, we will review them with you personally.</p>
-              </div>
-            </article>
-
-            <article class="faq-item">
-              <button class="faq-question" aria-expanded="false">
-                <span>How long does it take to receive a loan decision?</span>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-answer">
-                <p>Most loan decisions are completed within 2-3 business days after submission. If more information is needed, our support team will contact you promptly.</p>
-              </div>
-            </article>
-
-            <article class="faq-item">
-              <button class="faq-question" aria-expanded="false">
-                <span>Can I update my contact information online?</span>
-                <span class="faq-toggle">+</span>
-              </button>
-              <div class="faq-answer">
-                <p>Yes, contact details may be updated through the account portal or by submitting an inquiry through this form. We will confirm the changes before they are finalized.</p>
-              </div>
-            </article>
+            <p class="faq-loading">Loading FAQs from Sanity...</p>
           </div>
         </div>
 
@@ -129,6 +79,7 @@
       </section>
     </main>
 
+    <script type="module" src="js/shared-nav.js"></script>
     <script type="module" src="js/support-helpdesk.js"></script>
   </body>
 </html>

@@ -4,78 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="A professional cooperative website built with vanilla HTML, CSS, and JavaScript" />
-    <title>Cooperative - Community Driven Impact</title>
+    <title>Cooperative - Community. Trust. Growth.</title>
     <link rel="stylesheet" href="styles/global.css" />
+    
   </head>
   <body>
-    <!-- Navigation -->
-    <nav>
-      <div class="container">
-        <div class="nav-brand">Cooperative</div>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </nav>
+    <div id="site-header"></div>
 
-    <!-- Hero Section -->
-    <main>
-      <section class="hero">
-        <div class="hero-content">
-          <h1>Community. Trust. Growth.</h1>
-          <p>Join our cooperative movement and be part of something meaningful. Together we achieve more.</p>
-          <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <button class="btn btn-primary">Get Started</button>
-            <button class="btn btn-secondary">Learn More</button>
-            <button class="btn btn-accent">Explore</button>
-          </div>
-        </div>
-      </section>
+    <div id="app"></div>
 
-      <!-- Features Section -->
-      <section class="container" style="margin-bottom: 4rem;">
-        <h2 style="text-align: center; margin-bottom: 3rem;">Why Choose Us</h2>
-        <div class="grid grid-3">
-          <div class="card card-accent">
-            <div class="card-header">
-              <h3>Trustworthy</h3>
-            </div>
-            <div class="card-body">
-              <p>Built on principles of transparency and integrity, we prioritize your trust above all.</p>
-            </div>
-          </div>
-          
-          <div class="card card-accent">
-            <div class="card-header">
-              <h3>Professional</h3>
-            </div>
-            <div class="card-body">
-              <p>Industry-leading standards and expertise ensure quality in everything we do.</p>
-            </div>
-          </div>
-          
-          <div class="card card-accent">
-            <div class="card-header">
-              <h3>Community</h3>
-            </div>
-            <div class="card-body">
-              <p>Together, we're stronger. Join a network of like-minded individuals.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    <div id="footer-container"></div>
 
-    <script type="module">
-      // Future JavaScript modules will be imported here
-      console.log('Cooperative website initialized');
-      
-      // Add smooth scroll and animations
-      document.querySelectorAll('.fade-in, .slide-in-left').forEach((el) => {
-        el.style.animation = el.classList[0];
-      });
-    </script>
+    <script src="js/sanity-config.js"></script>
+    <script src="js/nav.js"></script>
+    <script src="js/navbar.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/footer.js"></script>
   </body>
 </html>

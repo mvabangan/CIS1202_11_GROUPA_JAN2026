@@ -1,25 +1,26 @@
 /* ===========================
-   COLOR SYSTEM - BLUE GRADIENT PALETTE
+   COLOR SYSTEM - EARTH GREEN PALETTE
    =========================== */
 :root {
   /* Primary Colors */
-  --color-primary: #1E3A8A;           /* Dark Navy Blue */
-  --color-primary-light: #2563EB;     /* Medium Blue */
-  --color-secondary: #60A5FA;         /* Light Blue */
+  --color-primary: #23743B;           /* Earth Green */
+  --color-primary-dark: #1D5F31;      /* Darker Forest Green */
+  --color-primary-light: #4F9B68;     /* Soft Green */
+  --color-secondary: #F5E6C8;         /* Light Beige */
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #1E3A8A, #2563EB, #60A5FA);
-  --gradient-dark: linear-gradient(135deg, #1E3A8A, #2563EB);
-  --gradient-light: linear-gradient(135deg, #2563EB, #60A5FA);
+  --gradient-primary: linear-gradient(135deg, #23743B, #4F9B68, #F5E6C8);
+  --gradient-dark: linear-gradient(135deg, #1D5F31, #23743B);
+  --gradient-light: linear-gradient(135deg, #4F9B68, #F5E6C8);
   
   /* Neutrals */
-  --color-background: #F8FAFF;        /* Very Light Blue-White */
+  --color-background: #FFFDD0;        /* Cream */
   --color-surface: #FFFFFF;           /* Pure White */
-  --color-surface-alt: #F3F7FF;       /* Light Blue Surface */
-  --color-border: #E0E7FF;            /* Light Blue Border */
-  --color-text-dark: #0F172A;         /* Near Black */
+  --color-surface-alt: #F5E6C8;       /* Light Beige Surface */
+  --color-border: #E9E0C8;            /* Soft Beige Border */
+  --color-text-dark: #1F3323;         /* Deep Forest Text */
   --color-text-light: #FFFFFF;        /* Pure White */
-  --color-text-muted: #64748B;        /* Muted Gray */
+  --color-text-muted: #6B755E;        /* Muted Olive */
   
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(30, 58, 138, 0.08);
@@ -342,7 +343,7 @@ code {
 }
 
 .btn-accent:hover {
-  background: linear-gradient(135deg, #2563EB, #0EA5E9);
+  background: var(--gradient-light);
 }
 
 /* Ghost Button */
@@ -634,7 +635,7 @@ nav .dropdown-content a {
   display: block;
   margin: 0;
   padding: var(--spacing-sm) var(--spacing-lg);
-  color: #0f172a;
+  color: var(--color-text-dark);
   font-weight: 500;
   white-space: nowrap;
   opacity: 1;
@@ -647,13 +648,13 @@ nav .dropdown-content a:hover,
 nav .dropdown-content a:focus-visible {
   opacity: 1;
   background-color: var(--color-surface-alt);
-  color: #1e3a8a;
+  color: var(--color-primary);
   text-decoration: none;
 }
 
 nav .nav-dropdown-menu a.active,
 nav .dropdown-content a.active {
-  color: #1e3a8a;
+  color: var(--color-primary);
   font-weight: 700;
   background-color: var(--color-surface-alt);
 }
